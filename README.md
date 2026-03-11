@@ -116,7 +116,7 @@ Ora è possibile usare Docker senza `sudo`.
 Clonare il repository:
 
 ``` bash
-git clone https://github.com/<username>/EVLog.git
+git clone https://github.com/HostileCoding/EVLog.git
 ```
 
 Entrare nella directory del progetto:
