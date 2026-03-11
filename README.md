@@ -3,9 +3,34 @@
 EVLog is a PHP + MySQL application for tracking and analyzing trips and
 charging sessions of an electric vehicle.
 
-The application is distributed using Docker, so you do **not** need to
-manually install PHP, MySQL, or Apache. Everything runs automatically
-inside containers.
+**Table of Contents**
+- [Introduction](#evlog)
+- [Requirements](#requirements)
+- [1. Update the system](#1-update-the-system)
+- [2. Install Docker](#2-install-docker)
+- [3. Verify the installation](#3-verify-the-installation)
+- [4. Use Docker without sudo (optional but recommended)](#4-use-docker-without-sudo-optional-but-recommended)
+- [5. Clone the application](#5-clone-the-application)
+- [6. Start the application](#6-start-the-application)
+- [7. Verify the containers](#7-verify-the-containers)
+- [8. Access the application](#8-access-the-application)
+- [9. View logs](#9-view-logs)
+- [10. Stop the application](#10-stop-the-application)
+- [11. Reset the database](#11-reset-the-database)
+- [Notes](#notes)
+
+EVLog is an application that allows you to export trips from the official Volvo app in CSV format and import them into this system. This enables you to maintain a historical record and perform analysis and statistics on your trips.
+
+Below are some screenshots of the interface:
+
+![Screenshot EVLog](https://raw.githubusercontent.com/HostileCoding/EVLog/main/evlog/screenshots/1.png)
+![Screenshot EVLog](https://raw.githubusercontent.com/HostileCoding/EVLog/main/evlog/screenshots/2.png)
+![Screenshot EVLog](https://raw.githubusercontent.com/HostileCoding/EVLog/main/evlog/screenshots/3.png)
+![Screenshot EVLog](https://raw.githubusercontent.com/HostileCoding/EVLog/main/evlog/screenshots/4.png)
+![Screenshot EVLog](https://raw.githubusercontent.com/HostileCoding/EVLog/main/evlog/screenshots/5.png)
+![Screenshot EVLog](https://raw.githubusercontent.com/HostileCoding/EVLog/main/evlog/screenshots/6.png)
+
+> **Disclaimer:** This application is provided "as is" and may contain errors or inaccuracies. The developer assumes no responsibility for any use or misuse of the application.
 
 ------------------------------------------------------------------------
 
