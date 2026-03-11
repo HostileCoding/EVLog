@@ -173,6 +173,20 @@ $values = array_column($data, 'value');
         </div>
     </main>
 
+    <!-- Footer -->
+    <footer class="bg-[#182871] text-white p-8 mt-auto shadow-inner">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <h2 class="text-lg font-black italic">EV <span class="font-light not-italic text-blue-300">LOG</span></h2>
+                <p class="text-[10px] uppercase font-bold text-white/40 tracking-widest mt-1">Dashboard Analisi Viaggi Elettrici</p>
+            </div>
+            <a href="https://www.paypal.com/paypalme/HostileCoding" target="_blank" class="coin-btn flex items-center gap-3 px-6 py-3 rounded-full text-[#182871] font-black text-sm uppercase tracking-tighter">
+                <i class="fas fa-coins text-xl"></i> Buy me a coffee
+            </a>
+            <p class="text-[10px] font-bold text-white/30 uppercase tracking-widest">© 2026 Hostile Coding</p>
+        </div>
+    </footer>
+
     <script>
         const ctx = document.getElementById('biChart');
         if (ctx) {
