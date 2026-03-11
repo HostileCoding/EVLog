@@ -1,25 +1,25 @@
 # EVLog
 
-Applicazione per la gestione e l'analisi dei viaggi e delle
-ricariche di un veicolo elettrico.
+EVLog is a PHP + MySQL application for tracking and analyzing trips and
+charging sessions of an electric vehicle.
 
-L'applicazione è distribuita tramite **Docker**, quindi non è necessario
-installare manualmente PHP, MySQL o Apache. Tutto viene avviato
-automaticamente tramite container.
-
-------------------------------------------------------------------------
-
-# Requisiti
-
--   Linux (testato su **Ubuntu 24.04**)
--   Connessione Internet
--   Permessi sudo
+The application is distributed using Docker, so you do **not** need to
+manually install PHP, MySQL, or Apache. Everything runs automatically
+inside containers.
 
 ------------------------------------------------------------------------
 
-# 1. Aggiornare il sistema
+# Requirements
 
-Aprire il terminale ed eseguire:
+-   Linux (tested on **Ubuntu 24.04**)
+-   Internet connection
+-   sudo privileges
+
+------------------------------------------------------------------------
+
+# 1. Update the system
+
+Open a terminal and run:
 
 ``` bash
 sudo apt update
@@ -28,45 +28,45 @@ sudo apt upgrade -y
 
 ------------------------------------------------------------------------
 
-# 2. Installare Docker
+# 2. Install Docker
 
-Installare i pacchetti necessari:
+Install required packages:
 
 ``` bash
 sudo apt install -y ca-certificates curl gnupg
 ```
 
-Creare la directory per le chiavi Docker:
+Create the Docker keyring directory:
 
 ``` bash
 sudo install -m 0755 -d /etc/apt/keyrings
 ```
 
-Scaricare la chiave GPG ufficiale di Docker:
+Download the official Docker GPG key:
 
 ``` bash
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 ```
 
-Impostare i permessi:
+Set permissions:
 
 ``` bash
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
 ```
 
-Aggiungere il repository Docker:
+Add the Docker repository:
 
 ``` bash
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo $VERSION_CODENAME) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
-Aggiornare i repository:
+Update package lists:
 
 ``` bash
 sudo apt update
 ```
 
-Installare Docker e Docker Compose:
+Install Docker and Docker Compose:
 
 ``` bash
 sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
@@ -74,58 +74,57 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin d
 
 ------------------------------------------------------------------------
 
-# 3. Verificare l'installazione
+# 3. Verify the installation
 
-Controllare la versione:
+Check the installed Docker version:
 
 ``` bash
 docker --version
 ```
 
-Test rapido:
+Run a quick test:
 
 ``` bash
 sudo docker run hello-world
 ```
 
-Se appare il messaggio **Hello from Docker**, l'installazione è
-corretta.
+If you see **Hello from Docker**, the installation is successful.
 
 ------------------------------------------------------------------------
 
-# 4. Usare Docker senza sudo (opzionale ma consigliato)
+# 4. Use Docker without sudo (optional but recommended)
 
-Aggiungere il proprio utente al gruppo docker:
+Add your user to the Docker group:
 
 ``` bash
 sudo usermod -aG docker $USER
 ```
 
-Ricaricare il gruppo:
+Reload the group:
 
 ``` bash
 newgrp docker
 ```
 
-Ora è possibile usare Docker senza `sudo`.
+Now you can run Docker commands without `sudo`.
 
 ------------------------------------------------------------------------
 
-# 5. Copiare l'applicazione
+# 5. Clone the application
 
-Clonare il repository:
+Clone the repository:
 
 ``` bash
 git clone https://github.com/HostileCoding/EVLog.git
 ```
 
-Entrare nella directory del progetto:
+Enter the project directory:
 
 ``` bash
 cd EVLog/evlog
 ```
 
-La struttura del progetto dovrebbe essere simile a questa:
+The project structure should look like this:
 
     EVLog
     │
@@ -142,30 +141,30 @@ La struttura del progetto dovrebbe essere simile a questa:
 
 ------------------------------------------------------------------------
 
-# 6. Avviare l'applicazione
+# 6. Start the application
 
-All'interno della cartella del progetto eseguire:
+Inside the project directory run:
 
 ``` bash
 docker compose up --build -d
 ```
 
-Docker farà automaticamente:
+Docker will automatically:
 
--   build del container PHP
--   avvio del database MariaDB
--   inizializzazione del database tramite `init.sql`
--   avvio di phpMyAdmin
+-   build the PHP container
+-   start the MariaDB database
+-   initialize the database using `init.sql`
+-   start phpMyAdmin
 
 ------------------------------------------------------------------------
 
-# 7. Verificare che i container siano attivi
+# 7. Verify the containers
 
 ``` bash
 docker ps
 ```
 
-Dovrebbero essere presenti tre container:
+You should see three containers:
 
 -   `volvo_trips_web`
 -   `volvo_trips_db`
@@ -173,11 +172,11 @@ Dovrebbero essere presenti tre container:
 
 ------------------------------------------------------------------------
 
-# 8. Accesso all'applicazione
+# 8. Access the application
 
-Aprire il browser.
+Open your browser.
 
-Applicazione EV Log:
+EV Log application:
 
     http://localhost:8080
 
@@ -185,7 +184,7 @@ phpMyAdmin:
 
     http://localhost:8081
 
-Credenziali phpMyAdmin:
+phpMyAdmin credentials:
 
     server: db
     user: volvo_user
@@ -193,15 +192,15 @@ Credenziali phpMyAdmin:
 
 ------------------------------------------------------------------------
 
-# 9. Visualizzare i log
+# 9. View logs
 
-Per controllare eventuali errori:
+To monitor logs and troubleshoot:
 
 ``` bash
 docker compose logs -f
 ```
 
-Solo container web:
+Only the web container:
 
 ``` bash
 docker compose logs web
@@ -209,7 +208,7 @@ docker compose logs web
 
 ------------------------------------------------------------------------
 
-# 10. Fermare l'applicazione
+# 10. Stop the application
 
 ``` bash
 docker compose down
@@ -217,9 +216,9 @@ docker compose down
 
 ------------------------------------------------------------------------
 
-# 11. Reset completo del database
+# 11. Reset the database
 
-Se si desidera ricreare completamente il database:
+To completely recreate the database:
 
 ``` bash
 docker compose down -v
@@ -228,11 +227,11 @@ docker compose up --build
 
 ------------------------------------------------------------------------
 
-# Note
+# Notes
 
-Il database viene inizializzato automaticamente al primo avvio
-utilizzando lo script:
+The database is automatically initialized during the first startup
+using:
 
     database/init.sql
 
-I dati del database sono persistenti grazie ai **Docker volumes**.
+Database data is persistent thanks to **Docker volumes**.
