@@ -29,6 +29,7 @@ Below are some screenshots of the interface:
 ![Screenshot EVLog](https://raw.githubusercontent.com/HostileCoding/EVLog/main/evlog/screenshots/4.png)
 ![Screenshot EVLog](https://raw.githubusercontent.com/HostileCoding/EVLog/main/evlog/screenshots/5.png)
 ![Screenshot EVLog](https://raw.githubusercontent.com/HostileCoding/EVLog/main/evlog/screenshots/6.png)
+![Screenshot EVLog](https://raw.githubusercontent.com/HostileCoding/EVLog/main/evlog/screenshots/7.png)
 
 > **Disclaimer:** This application is provided "as is" and may contain errors or inaccuracies. The developer assumes no responsibility for any use or misuse of the application.
 
