@@ -121,6 +121,7 @@ $allCategories = $catSelectStmt->fetchAll(PDO::FETCH_COLUMN);
             <h1 class="text-xl font-bold italic">EV <span class="font-light not-italic text-blue-300">LOG</span></h1>
             <nav class="flex gap-4">
                 <a href="index.php" class="text-blue-200 font-bold border-b-2 border-blue-400 pb-1 text-sm uppercase tracking-tighter">Viaggi</a>
+                <a href="charges.php" class="text-white/60 hover:text-white transition text-sm uppercase tracking-tighter">Ricariche</a>
                 <a href="analytics.php" class="text-white/60 hover:text-white transition text-sm uppercase tracking-tighter">Analisi</a>
             </nav>
         </div>
@@ -262,9 +263,8 @@ $allCategories = $catSelectStmt->fetchAll(PDO::FETCH_COLUMN);
                 <p class="text-[10px] uppercase font-bold text-white/40 tracking-widest mt-1">Dashboard Analisi Viaggi Elettrici</p>
             </div>
             <a href="https://www.paypal.com/paypalme/HostileCoding" target="_blank" class="coin-btn flex items-center gap-3 px-6 py-3 rounded-full text-[#182871] font-black text-sm uppercase tracking-tighter">
-                <i class="fas fa-coins text-xl"></i> Buy me a coffee
+                <i class="fas fa-coins text-xl"></i> Offrimi un caffè
             </a>
-            <p class="text-[10px] font-bold text-white/30 uppercase tracking-widest">© 2026 Hostile Coding</p>
         </div>
     </footer>
 
@@ -348,7 +348,7 @@ $allCategories = $catSelectStmt->fetchAll(PDO::FETCH_COLUMN);
 
         function openTripModal(trip) {
             currentTrip = trip;
-            const date = new Date(trip.start_time);
+            const date = new Date(trip.start_time.replace(' ', 'T'));
             document.getElementById('mDateDay').innerText = date.getDate();
             document.getElementById('mDateMonth').innerText = date.toLocaleString('it-IT', { month: 'short' });
             
